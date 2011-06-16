@@ -1,3 +1,5 @@
+use strict;
+use warnings;
 use Mojolicious::Lite;
 use Furl;
 use Digest::SHA1  qw(sha1 sha1_hex sha1_base64);
