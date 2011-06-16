@@ -1,6 +1,4 @@
-use 5.12.2;
 use Mojolicious::Lite;
-use Data::Dumper;
 use Furl;
 use Digest::SHA1  qw(sha1 sha1_hex sha1_base64);
 use Mojo::JSON;
