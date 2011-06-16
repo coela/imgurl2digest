@@ -4,9 +4,9 @@ use Mojolicious::Lite;
 use Furl;
 use Digest::SHA1  qw(sha1 sha1_hex sha1_base64);
 use Mojo::JSON;
-use Mojo::Headers;
-my $headers = Mojo::Headers->new;
-$headers = $headers->add('Access-Control-Allow-Origin', '*');
+#use Mojo::Headers;
+#my $headers = Mojo::Headers->new;
+#$headers = $headers->add('Access-Control-Allow-Origin', '*');
 
 get '/' => sub{
 	my $self = shift;
@@ -23,6 +23,7 @@ get '/' => sub{
 	$sha1->add($res->content);
 	my $json   = Mojo::JSON->new;
 #my $string = $json->encode($sha1->hexdigest);
+	$self->res->headers->header('Access-Control-Allow-Origin' => '*');
 	$self->render(text=>$sha1->hexdigest);
 };
 
