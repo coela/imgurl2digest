@@ -22,8 +22,8 @@ get '/' => sub{
 	my $sha1 = Digest::SHA1->new;
 	$sha1->add($res->content);
 	my $json   = Mojo::JSON->new;
-	my $string = $json->encode($sha1->hexdigest);
-	$self->render(json => $string);
+#my $string = $json->encode($sha1->hexdigest);
+	return $sha1->hexdigest);
 };
 
 app->start;
