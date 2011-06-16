@@ -23,7 +23,7 @@ get '/' => sub{
 	$sha1->add($res->content);
 	my $json   = Mojo::JSON->new;
 	my $string = $json->encode($sha1->hexdigest);
-	$self->render(text => $string);
+	$self->render(json => $string);
 };
 
 app->start;
